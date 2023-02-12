@@ -157,6 +157,4 @@ object MultipleStreams {
     demoConnect()
   }
 
-  // window join = elements belong to the same window + some join condition
-
 }
