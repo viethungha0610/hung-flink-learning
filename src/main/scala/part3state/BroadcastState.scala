@@ -67,7 +67,7 @@ object BroadcastState {
             case AddToShoppingCartEvent(userId, sku, quantity, item) => {
               val currentThreshold: Int = ctx.getBroadcastState(thresholdDescriptor).get("quantity-threshold")
               if (quantity > currentThreshold) {
-                out.collect(s"User $userId attempting to purchase $quantity when the threshold is $threshold")
+                out.collect(s"User $userId attempting to purchase $quantity when the threshold is $currentThreshold")
               }
             }
 
