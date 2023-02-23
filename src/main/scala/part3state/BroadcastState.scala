@@ -36,61 +36,61 @@ object BroadcastState {
   // ... if the threshold CHANGES over time
   // thresholds will be BROADCAST
 
-  def changingThreshold(): Unit = {
-    val threshold: DataStream[Int] = env.addSource(new SourceFunction[Int] {
-      override def run(ctx: SourceFunction.SourceContext[Int]): Unit = {
+  def changingThresholds(): Unit = {
+    val thresholds: DataStream[Int] = env.addSource(new SourceFunction[Int] {
+      override def run(ctx: SourceFunction.SourceContext[Int]) =
         List(2, 0, 4, 5, 6, 3).foreach { newThreshold =>
           Thread.sleep(1000)
           ctx.collect(newThreshold)
         }
-      }
 
-      override def cancel(): Unit = ()
+      override def cancel() = ()
     })
 
     // broadcast state is ALWAYS a map
-    val broadcastStateDescriptor = new MapStateDescriptor[String, Int]("threshold", classOf[String], classOf[Int])
-    val broadcastThreshold: BroadcastStream[Int] = threshold.broadcast(broadcastStateDescriptor)
+    val broadcastStateDescriptor = new MapStateDescriptor[String, Int]("thresholds", classOf[String], classOf[Int])
+    val broadcastThresholds: BroadcastStream[Int] = thresholds.broadcast(broadcastStateDescriptor)
 
     val notificationsStream = eventsByUser
-      .connect(broadcastThreshold)
+      .connect(broadcastThresholds)
       .process(new KeyedBroadcastProcessFunction[String, ShoppingCartEvent, Int, String] {
-        //                                        ^key    ^ first event    ^broadcast ^output
-
-        val thresholdDescriptor = new MapStateDescriptor[String, Int]("threshold", classOf[String], classOf[Int])
-
-        override def processElement(
-                                     shoppingCartEvent: ShoppingCartEvent,
-                                     ctx: KeyedBroadcastProcessFunction[String, ShoppingCartEvent, Int, String]#ReadOnlyContext,
-                                     out: Collector[String]): Unit = {
-          shoppingCartEvent match {
-            case AddToShoppingCartEvent(userId, sku, quantity, item) => {
-              val currentThreshold: Int = ctx.getBroadcastState(thresholdDescriptor).get("quantity-threshold")
-              if (quantity > currentThreshold) {
-                out.collect(s"User $userId attempting to purchase $quantity when the threshold is $threshold")
-              }
-            }
-
-            case _ =>
-          }
-        }
+        //                                       ^ key   ^ first event      ^ broadcast  ^ output
+        val thresholdsDescriptor = new MapStateDescriptor[String, Int]("thresholds", classOf[String], classOf[Int])
 
         override def processBroadcastElement(
                                               newThreshold: Int,
                                               ctx: KeyedBroadcastProcessFunction[String, ShoppingCartEvent, Int, String]#Context,
-                                              out: Collector[String]): Unit = {
+                                              out: Collector[String]
+                                            ) = {
           println(s"Threshold about to be changed -- $newThreshold")
-          val stateThresholds = ctx.getBroadcastState(thresholdDescriptor)
+          // fetch the broadcast state = distributed variable
+          val stateThresholds = ctx.getBroadcastState(thresholdsDescriptor)
           // update the state
           stateThresholds.put("quantity-threshold", newThreshold)
         }
+
+
+        override def processElement(
+                                     event: ShoppingCartEvent,
+                                     ctx: KeyedBroadcastProcessFunction[String, ShoppingCartEvent, Int, String]#ReadOnlyContext,
+                                     out: Collector[String]
+                                   ) = {
+          event match {
+            case AddToShoppingCartEvent(userId, sku, quantity, time) =>
+              val currentThreshold: Int = ctx.getBroadcastState(thresholdsDescriptor).get("quantity-threshold")
+              if (quantity > currentThreshold)
+                out.collect(s"User $userId attempting to purchase $quantity items of $sku when threshold is $currentThreshold")
+            case _ =>
+          }
+        }
       })
+
 
     notificationsStream.print()
     env.execute()
   }
 
   def main(args: Array[String]): Unit = {
-    changingThreshold()
+    changingThresholds()
   }
 }
