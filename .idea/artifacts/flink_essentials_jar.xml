@@ -1,0 +1,83 @@
+<component name="ArtifactManager">
+  <artifact name="flink-essentials:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/flink_essentials_jar</output-path>
+    <root id="root">
+      <element id="archive" name="flink-essentials.jar">
+        <element id="module-output" name="flink-essentials" />
+      </element>
+      <element id="library" level="project" name="sbt: com.esotericsoftware.minlog:minlog:1.2:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-shaded-guava:18.0-13.0:jar" />
+      <element id="library" level="project" name="sbt: com.github.luben:zstd-jni:1.4.3-1:jar" />
+      <element id="library" level="project" name="sbt: org.apache.commons:commons-compress:1.20:jar" />
+      <element id="library" level="project" name="sbt: org.apache.commons:commons-math3:3.5:jar" />
+      <element id="library" level="project" name="sbt: org.testcontainers:testcontainers:1.15.1:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-shaded-asm-7:7.1-13.0:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-hadoop-fs:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-runtime_2.12:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.objenesis:objenesis:2.1:jar" />
+      <element id="library" level="project" name="sbt: org.rnorth.duct-tape:duct-tape:1.0.8:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:force-shading:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-protobuf_2.12:2.5.21:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-connector-jdbc_2.12:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.postgresql:postgresql:42.2.2:jar" />
+      <element id="library" level="project" name="sbt: org.lz4:lz4-java:1.6.0:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-scala_2.12:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: commons-cli:commons-cli:1.3.1:jar" />
+      <element id="library" level="project" name="sbt: org.scala-lang:scala-library:2.12.15:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe:ssl-config-core_2.12:0.3.7:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-shaded-jackson:2.12.1-13.0:jar" />
+      <element id="library" level="project" name="sbt: org.scala-lang.modules:scala-xml_2.12:1.0.6:jar" />
+      <element id="library" level="project" name="sbt: org.clapper:grizzled-slf4j_2.12:1.3.2:jar" />
+      <element id="library" level="project" name="sbt: junit:junit:4.12:jar" />
+      <element id="library" level="project" name="sbt: org.testcontainers:jdbc:1.15.1:jar" />
+      <element id="library" level="project" name="sbt: org.apache.kafka:kafka-clients:2.4.1:jar" />
+      <element id="library" level="project" name="sbt: net.java.dev.jna:jna:5.5.0:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-core:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-slf4j_2.12:2.5.21:jar" />
+      <element id="library" level="project" name="sbt: com.github.scopt:scopt_2.12:3.5.0:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-streaming-scala_2.12:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: com.google.code.findbugs:jsr305:1.3.9:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-connector-base:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: com.esotericsoftware.kryo:kryo:2.24.0:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-shaded-zookeeper-3:3.4.14-13.0:jar" />
+      <element id="library" level="project" name="sbt: org.xerial.snappy:snappy-java:1.1.8.3:jar" />
+      <element id="library" level="project" name="sbt: com.github.docker-java:docker-java-transport-zerodep:3.2.7:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-shaded-netty:4.1.49.Final-13.0:jar" />
+      <element id="library" level="project" name="sbt: org.reactivestreams:reactive-streams:1.0.2:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe:config:1.3.3:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-actor_2.12:2.5.21:jar" />
+      <element id="library" level="project" name="sbt: commons-io:commons-io:2.8.0:jar" />
+      <element id="library" level="project" name="sbt: org.apache.commons:commons-lang3:3.3.2:jar" />
+      <element id="library" level="project" name="sbt: org.scala-lang:scala-compiler:2.12.15:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-metrics-core:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-java:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-streaming-java_2.12:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.scala-lang:scala-reflect:2.12.15:jar" />
+      <element id="library" level="project" name="sbt: org.scala-lang.modules:scala-java8-compat_2.12:0.8.0:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-annotations:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.javassist:javassist:3.24.0-GA:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-clients_2.12:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: com.fasterxml.jackson.core:jackson-annotations:2.10.3:jar" />
+      <element id="library" level="project" name="sbt: io.dropwizard.metrics:metrics-core:3.1.2:jar" />
+      <element id="library" level="project" name="sbt: org.testcontainers:postgresql:1.15.1:jar" />
+      <element id="library" level="project" name="sbt: com.github.docker-java:docker-java-transport:3.2.7:jar" />
+      <element id="library" level="project" name="sbt: com.twitter:chill_2.12:0.7.6:jar" />
+      <element id="library" level="project" name="sbt: com.twitter:chill-java:0.7.6:jar" />
+      <element id="library" level="project" name="sbt: org.slf4j:slf4j-api:1.7.32:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-queryable-state-client-java:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-stream_2.12:2.5.21:jar" />
+      <element id="library" level="project" name="sbt: com.github.docker-java:docker-java-api:3.2.7:jar" />
+      <element id="library" level="project" name="sbt: ch.qos.logback:logback-core:1.2.10:jar" />
+      <element id="library" level="project" name="sbt: org.rnorth.visible-assertions:visible-assertions:2.1.2:jar" />
+      <element id="library" level="project" name="sbt: org.scala-lang.modules:scala-parser-combinators_2.12:1.1.1:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-file-sink-common:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-connector-kafka_2.12:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.hamcrest:hamcrest-core:1.3:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-connector-cassandra_2.12:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: ch.qos.logback:logback-classic:1.2.10:jar" />
+      <element id="library" level="project" name="sbt: commons-collections:commons-collections:3.2.2:jar" />
+      <element id="library" level="project" name="sbt: org.apache.flink:flink-optimizer_2.12:1.13.2:jar" />
+      <element id="library" level="project" name="sbt: org.testcontainers:database-commons:1.15.1:jar" />
+    </root>
+  </artifact>
+</component>

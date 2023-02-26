@@ -42,5 +42,4 @@ object SideOutputs {
   def main(args: Array[String]): Unit = {
     demoSideOutput()
   }
-
 }

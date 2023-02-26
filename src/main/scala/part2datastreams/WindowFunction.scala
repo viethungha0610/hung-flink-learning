@@ -257,7 +257,7 @@ object WindowFunction {
 
   def main(args: Array[String]): Unit = {
 //    windowFunctionExercise()
-    windowFunctionsSolution()
+    demoSlidingAllWindows()
   }
 
 }
