@@ -1,0 +1,4 @@
+some other string
+This is an example
+This is Hung
+Daniel says this is ok
